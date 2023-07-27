@@ -1,0 +1,173 @@
+<p>trackingstatus works!</p>
+<style>
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 5px;
+    }
+  
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .form-group {
+      margin-bottom: 15px;
+    }
+  
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+  
+    .form-group input[type="text"],
+    .form-group select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  
+    .form-group select {
+      height: 36px;
+    }
+  
+    .form-group input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    .form-group input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+  
+  <div class="form-container">
+    <!-- <h2>Registration Form</h2> -->
+    <form (ngSubmit)="add()">
+        <div class="form-group">
+            <label for="hubs">No. of Hubs:</label>
+            <select id="hubs" name="hubs" [(ngModel)]="hubs" (change)="showhubs(hub1)">
+              <option value="">Select</option>
+              <option value="one">1</option>
+              <option value="two">2</option>
+              <option value="three">3</option>
+              <option value="four">4</option>
+            </select>
+          </div>
+             
+      <div *ngIf="onehub">
+      <div class="form-group">
+        <label for="hub1">Hub1:</label>
+        <select id="hub1" name="hub1" [(ngModel)]="hub1" (change)="showhub1()">
+          <option value="">Select</option>
+          <option value="usa">USA</option>
+          <option value="canada">Canada</option>
+          <option value="uk">UK</option>
+        </select>
+      </div>
+      </div>
+
+
+      <div *ngIf="twohub" class="text-succ">
+      <div class="form-group">
+        <label for="hub1">Hub1:</label>
+        <select id="hub1" name="hub1" [(ngModel)]="hub1">
+          <option value="">Select</option>
+          <option value="usa">USA</option>
+          <option value="canada">Canada</option>
+          <option value="uk">UK</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="hub2">Hub2:</label>
+        <select id="hub2" name="hub2" [(ngModel)]="hub2" (change)="showhub2()">
+          <option value="">Select</option>
+          <option value="usa">USA</option>
+          <option value="canada">Canada</option>
+          <option value="uk">UK</option>
+        </select>
+      </div>
+     </div>
+
+     <div *ngIf="threehub" class="text-succ">
+        <div class="form-group">
+            <label for="hub1">Hub1:</label>
+            <select id="hub1" name="hub1" [(ngModel)]="hub1">
+              <option value="">Select</option>
+              <option value="usa">USA</option>
+              <option value="canada">Canada</option>
+              <option value="uk">UK</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="hub2">Hub2:</label>
+            <select id="hub2" name="hub2" [(ngModel)]="hub2">
+              <option value="">Select</option>
+              <option value="usa">USA</option>
+              <option value="canada">Canada</option>
+              <option value="uk">UK</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="hub3">Hub3:</label>
+            <select id="hub3" name="hub3" [(ngModel)]="hub3" (click)="showhub3()">
+              <option value="">Select</option>
+              <option value="usa">USA</option>
+              <option value="canada">Canada</option>
+              <option value="uk">UK</option>
+            </select>
+          </div>
+     </div>
+
+     <div *ngIf="fourhub" class="text-succ">
+        <div class="form-group">
+            <label for="hub1">Hub1:</label>
+            <select id="hub1" name="hub1" [(ngModel)]="hub1">
+              <option value="">Select</option>
+              <option value="usa">USA</option>
+              <option value="canada">Canada</option>
+              <option value="uk">UK</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="hub2">Hub2:</label>
+            <select id="hub2" name="hub2" [(ngModel)]="hub2">
+              <option value="">Select</option>
+              <option value="usa">USA</option>
+              <option value="canada">Canada</option>
+              <option value="uk">UK</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="hub3">Hub3:</label>
+            <select id="hub3" name="hub3" [(ngModel)]="hub3">
+              <option value="">Select</option>
+              <option value="usa">USA</option>
+              <option value="canada">Canada</option>
+              <option value="uk">UK</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="hub4">Hub4:</label>
+            <select id="hub4" name="hub4" [(ngModel)]="hub4" (change)="showhub4()">
+              <option value="">Select</option>
+              <option value="usa">USA</option>
+              <option value="canada">Canada</option>
+              <option value="uk">UK</option>
+            </select>
+          </div>
+          </div>  
+      <div class="form-group">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  

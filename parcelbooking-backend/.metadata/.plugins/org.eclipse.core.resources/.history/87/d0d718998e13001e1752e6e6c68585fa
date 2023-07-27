@@ -1,0 +1,63 @@
+package com.example.entity;
+
+
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class TrackingInfo {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private Long parcelId;
+    private String currentStatus;
+    private String location;
+//    private LocalDateTime timestamp;
+	public TrackingInfo() {
+		super();
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Long getParcelId() {
+		return parcelId;
+	}
+	public void setParcelId(Long parcelId) {
+		this.parcelId = parcelId;
+	}
+	public String getCurrentStatus() {
+		return currentStatus;
+	}
+	public void setCurrentStatus(String currentStatus) {
+		this.currentStatus = currentStatus;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+//	public LocalDateTime getTimestamp() {
+//		return timestamp;
+//	}
+//	public void setTimestamp(LocalDateTime timestamp) {
+//		this.timestamp = timestamp;
+//	}
+	public TrackingInfo(Long id, Long parcelId, String currentStatus, String location) {
+		super();
+		this.id = id;
+		this.parcelId = parcelId;
+		this.currentStatus = currentStatus;
+		this.location = location;
+//		this.timestamp = timestamp;
+	}
+}
+

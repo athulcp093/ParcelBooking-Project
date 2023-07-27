@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Parcel Service</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .service{
+            margin-left: 20px;
+            margin-top: 20px;
+            margin-right: 20px;
+            display: flex;
+            height: 50vh; /* Adjust as needed */
+            background-color: #f1f1f1;
+        }
+        .contact{
+            margin-left: 20px;
+            margin-top: 20px;
+            margin-right: 20px;
+            display: flex;
+            height: 20vh; /* Adjust as needed */
+            background-color: #f1f1f1;
+        }
+        .container {
+            margin-left: 10px;
+            margin-top: 20px;
+  display: flex;
+  height: 50vh; /* Adjust as needed */
+}
+.track{
+    margin-left: 30px;
+    margin-right: 170px;
+}
+.add{
+    margin-left: 20px;
+}
+.h2{
+    margin-top: 30px;
+    /* margin-left: 50px; */
+}
+.h22{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.srch{
+    margin-top: 20px;
+}
+.route{
+    column-width: 30px;
+}
+.routs{
+    column-width: 50px;
+}
+.ulservice{
+    margin-top: 100px;
+    margin-left: -190px;
+}
+.trtble{
+    margin-top: 100px;
+    margin-left: -265px;
+}
+.addbtn{
+    color: #660000;
+    font-size: 24px;
+}
+
+        .left {
+            
+            margin-top: 20px;    
+  flex: 30%;
+  background-color: #f1f1f1;
+}
+
+    .right {
+        margin-left: 10px;
+        margin-top: 20px;
+       flex: 40%;
+       background-color: #e6e6e6;
+     }
+        #header {
+            background-color: azure;
+            color:rgb(66, 12, 64);
+            padding: 20px;
+            text-align: center;
+        }
+
+        #header h1 {
+            margin: 0;
+            font-size: 30px;
+            text-shadow: 2px 2px #000;
+        }
+
+        #main-content {
+            margin: 20px;
+        }
+
+        #main-content h2 {
+            color: #660000;
+            font-size: 24px;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        form input[type="text"],
+        form input[type="submit"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+
+        form input[type="submit"] {
+            background-color: #660000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        #footer {
+            background-color: #ccc;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        .text-succ{
+            margin-top: 40px;
+        }
+        .tb{
+            margin-left: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Your Parcel Service</h1>
+    </div>
+    
+    <div id="main-content">
+        <h2>Welcome to Your Parcel Service</h2>
+        <p>Efficient, reliable, and secure parcel delivery solutions.</p>
+        <img src="your_logo.png" alt="Your Parcel Service Logo">
+        <div class="contact">
+            <h2 class="h2">Your orders</h2>
+            <table class="tb">
+                <tr *ngFor="let p of parcels">
+                  <td>Parcel ID : {{p.id}}</td>
+                  <!-- <td>{{p.recieverPhno}}</td> -->
+                  <!-- <td><button onclick="showdata()">details</button></td> -->
+                </tr>
+                  <div *ngIf="submits">
+                    <td> </td>
+            
+                  </div>
+                <tr>
+            
+                </tr>
+              </table>
+        </div>
+        <div class="container">
+            
+        <div class="left">
+        <div class="track">
+        <h2 class="h2">Search Your Package</h2>
+        <!-- <form (ngSubmit)="search()"> -->
+            <div class="srch">
+            <input type="text" name="id" placeholder="Enter parcel id" [(ngModel)]="id" required>
+            <button type="submit" (click)="search()">search</button>
+            </div>
+            <!-- <input type="submit" value="Search"> -->
+            <div *ngIf="submits" class="text-succ">
+                <!-- <table>
+                    <tr>
+                        <th>Sender</th>
+                        <th>Receiver</th>
+                        <th>Source</th>
+                        <th>Destination</th>
+                        <th>Ph</th>
+                    </tr>
+                    <tr>
+                        <td>{{parcel1.sendername}}</td>
+                        <td>{{parcel1.receivername}}</td>
+                        <td>{{parcel1.senderaddress}}</td>
+                        <td>{{parcel1.recieveraddress}}</td>
+                        <td>{{parcel1.recieverPhno}}</td>
+                    </tr>
+                </table> -->
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <!-- <th scope="col">Sender</th> -->
+                        <!-- <th scope="col">parcelId</th> -->
+                        <th scope="col">Receiver</th>
+                        <th scope="col">Source</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">recieverPhno</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <!-- <th scope="row">1</th> -->
+                        <!-- <td>{{parcel1.sendername}}</td> -->
+                        <!-- <td>{{parcel2.id}}</td> -->
+                        <td>{{parcel1.recievername}}</td>
+                        <td>{{parcel1.senderaddress}}</td>
+                        <td>{{parcel1.recieveraddress}}</td>
+                        <td>{{parcel1.recieverPhno}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+              </div>
+        <!-- </form> -->
+       </div>
+        </div>
+        <div class="right">
+        <div class="add">        
+        <h2 class="h2">Add New Parcel</h2>
+        <div class="srch">
+        <form (ngSubmit)="add()">
+        
+            <input type="text" name="sendername" placeholder="Sender's name" [(ngModel)]="sendername" required>         
+            <input type="text" name="receivername" placeholder="Receiver's name" [(ngModel)]="recievername" required>
+            <input type="text" name="senderaddress" placeholder="sender's address" [(ngModel)]="senderaddress" required>
+            <input type="text" name="recieveraddress" placeholder="reciever's address" [(ngModel)]="recieveraddress" required>
+            <input type="text" name="recieverPhno" placeholder="reciever's ph" [(ngModel)]="recieverPhno" required>
+            <input type="submit" value="Add">
+
+            <div *ngIf="submitted" class="text-success">
+                {{successMessage}}
+              </div>
+        </form></div>
+        </div>
+       </div>
+      </div>
+      <div class="service">
+        <h2 class="h22">Track your Parcels</h2>
+        <!-- <div class="track11">
+        
+        </div> -->
+        <div class="ulservice">
+            <input type="text" name="ids" placeholder="Enter parcel id" [(ngModel)]="ids" required>
+            <button type="submit" (click)="track()">track</button>
+        <!-- <ul>
+            <li>Domestic and international shipping</li>
+            <li>Express delivery</li>
+            <li>Courier services</li>
+            <li>Package tracking</li>
+            <li>Customs clearance</li>
+        </ul> -->
+    </div>
+    <div *ngIf="submitsss" class="text-succ">
+        <div class="trtble">
+        <table class="table">
+            <thead>
+              <tr>
+                <!-- <th scope="col">Sender</th> -->
+                <!-- <th scope="col">parcelId</th> -->
+                <th scope="col">Parcel ID</th>
+                <th scope="col">Live Location</th>
+                <th scope="col">Route</th>
+                <th scope="col" *ngFor="let items of tracks.location" class="routs"></th>
+                
+                
+                
+                <!-- <th scope="col">recieverPhno</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <!-- <th scope="row">1</th> -->
+                <!-- <td>{{parcel1.sendername}}</td> -->
+                <!-- <td>{{parcel2.id}}</td> -->
+                <td>{{tracks.parcelId}}</td>
+                <td>{{tracks.currentStatus}}</td>
+                <td>Starting point:</td>
+                <td *ngFor="let items of tracks.location" class="routs">->{{items}}</td>
+                
+                <!-- <td>{{parcel1.recieverPhno}}</td> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>   
+    </div>
+    </div>
+     
+    </div>
+    
+    <div id="footer">
+        &copy; 2023 Your Parcel Service. All rights reserved.
+    </div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,69 @@
+package com.example.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.dto.ParcelDTO;
+//import com.example.dto.TrackingInfoDTO;
+import com.example.entity.TrackingInfo;
+import com.example.repo.TrackingInfoRepository;
+
+@Service
+public class TrackingService {
+    @Autowired
+    TrackingInfoRepository trackingInfoRepository;
+    
+    @Autowired
+    private RestTemplate restemp;
+
+
+    public TrackingInfo addTrackingInfo(TrackingInfo trackingInfo) {
+        return trackingInfoRepository.save(trackingInfo);
+    }
+    public TrackingInfo getTrackingInfo(long id) {
+    	return trackingInfoRepository.findById(id).get();
+    }
+//    public void addParcel(int userid, Parcel p) {
+//		
+//		User u= userRepo.findById(userid).orElseThrow(()->new NoSuchElementException("not found"));
+//		Parcel pr= new Parcel();
+//		pr.setAmount(p.getAmount());
+//		pr.setCurrentLocation(p.getCurrentLocation());
+//		pr.setTrackingNumber(p.getTrackingNumber());
+//		pr.setUser(u);
+//		u.getPlist().add(pr);
+//		System.out.println(u.getPlist());
+//		 userRepo.save(u);	
+//		 //return pr;
+//	}
+
+//    public TrackingInfoDTO getTrackingInfoById(Long id) {
+//        return trackingInfoRepository.findById(id).orElse(null);
+//    	TrackingInfo trackingInfo = trackingInfoRepository.findById(id).orElse(null);
+//    	Long id1=trackingInfo.getId();
+//    	Long parcelid1=trackingInfo.getParcelId();
+//    	String status=trackingInfo.getCurrentStatus();
+//    	List<String> loc=trackingInfo.getLocation();
+//        
+//        TrackingInfoDTO tdto= new TrackingInfoDTO();
+//        tdto.setId(id1);
+//        tdto.setParcelId(parcelid1);
+//        tdto.setCurrentStatus(status);
+//        tdto.setLocation(loc);
+//        return tdto;
+//    }
+    
+    public String getallParcels() {
+    	
+    	String parcelURL= "http://localhost:8098/parcels/getall";
+    	ResponseEntity<String> response= restemp.getForEntity(parcelURL, String.class);
+    	return response.getBody();
+    	
+    }
+
+    // Other methods as needed
+}

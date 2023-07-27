@@ -1,0 +1,37 @@
+<head>
+    <title>My Web Page</title>
+    <link rel="stylesheet" href="parcelsforhub.component.css">
+  </head>
+ <body> 
+      <h2 style="text-align: center;">User Details</h2>
+      <br>
+<table style="margin-left:auto; margin-right: auto;" >
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>SOURCE</th>
+        <th>DESTINATION</th>
+        <th>PHONE</th>
+    </tr>
+    <br>
+    <tr *ngFor="let p of parcels">
+        <td>{{p.id}}</td>
+        <td>{{p.recievername}}</td>
+        <td>{{p.senderaddress}}</td>
+        <td>{{p.recieveraddress}}</td>
+        <td>{{p.recieverPhno}}</td>
+        <td><button (click)="status(p.id)">add route</button></td>
+    </tr>
+    <br>
+    <br>  
+    <tr>
+        <td></td>
+        <td></td>
+        <td><button style="font-size: 13px; padding: 5px 9px;" id="btn2" value="click" routerLink="/home">Back</button></td>
+    </tr>  
+
+</table>
+<div *ngIf="visible">
+    <p>{{dispid}}</p>
+</div>
+</body>

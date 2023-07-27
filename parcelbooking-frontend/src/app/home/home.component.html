@@ -1,0 +1,76 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>My Web Page</title>
+  <link rel="stylesheet" href="home.component.css">
+</head>
+<body>
+  
+    <div style="position: absolute; box-sizing:border-box; -moz-box-sizing:border-box; padding-top: 50px; padding-bottom: 50px; width: 100%; height: 10%;">
+        <div id="mainSplitter">
+            <div>
+                <ul>
+                    <li *ngFor="let object of ar">{{object}}</li>
+                </ul> 
+            </div>
+            <div>
+                <div id="rightSplitter">
+                    <div class="container">
+                        <h1>Welcome to My Web Page</h1>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a routerLink="/profile">About</a></li>
+                            <li><a href="https://colorlib.com/wp/templates/page/2/">Services</a></li>
+                            <li><a href="#">Contact</a></li>
+                          </ul>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius urna sit amet enim auctor, in tincidunt justo pellentesque. Mauris et quam ut velit maximus pulvinar ac a risus.</p>
+                        <button class="cta-button">Learn More</button>
+                    </div>
+                    <div >
+                        <button style="font-size: 20px; padding: 10px 20px;" id="btn1" value="click" routerLink="/profile">click</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+          </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcel Booking</title>
+  <link rel="stylesheet" href="home.component.css">
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <h1>Parcel Booking Made Easy</h1>
+      <p>Book your parcel delivery online with ease and convenience.</p>
+      <a [routerLink]="['/dashboard']" class="cta-btn">Get Started</a>
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="feature">
+      <img src="assets\images\parcelhome8.jpg" alt="Feature 1">
+      <h2>Fast &amp; Reliable</h2>
+      <p>Enjoy fast and reliable delivery services to your desired destination.</p>
+    </div>
+    <div class="feature">
+      <img src="assets\images\parcelhome7.jpg" alt="Feature 2">
+      <h2>Real-Time Tracking</h2>
+      <p>Track your parcel in real-time and know its exact location at any given moment.</p>
+    </div>
+    <div class="feature">
+      <img src="assets\images\parcel1.jpg" alt="Feature 3">
+      <h2>Secure Delivery</h2>
+      <p>Your parcels are handled with utmost care and delivered securely.</p>
+    </div>
+  </section>
+</body>
+</html>
+

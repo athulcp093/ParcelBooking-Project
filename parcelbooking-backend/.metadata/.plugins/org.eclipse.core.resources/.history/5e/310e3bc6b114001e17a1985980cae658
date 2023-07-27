@@ -1,0 +1,49 @@
+package com.example.dto;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+
+@Entity
+public class TrackingInfoDTO {
+
+	private Long id;
+    private Long parcelId;
+    private String currentStatus;
+    private List<String> location;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	public TrackingInfoDTO(Long id, Long parcelId, String currentStatus, List<String> location) {
+		this.id = id;
+		this.parcelId = parcelId;
+		this.currentStatus = currentStatus;
+		this.location = location;
+	}
+	public TrackingInfoDTO() {}
+//	public TrackingInfoDTO(Long id1, Long parcelid1, String status, List<String> loc) {
+//		// TODO Auto-generated constructor stub
+//	}
+	public Long getParcelId() {
+		return parcelId;
+	}
+	public void setParcelId(Long parcelId) {
+		this.parcelId = parcelId;
+	}
+	public String getCurrentStatus() {
+		return currentStatus;
+	}
+	public void setCurrentStatus(String currentStatus) {
+		this.currentStatus = currentStatus;
+	}
+	public List<String> getLocation() {
+		return location;
+	}
+	public void setLocation(List<String> location) {
+		this.location = location;
+	}
+}

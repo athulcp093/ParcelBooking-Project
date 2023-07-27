@@ -1,0 +1,16 @@
+<div>
+  <table>
+    <tr *ngFor="let p of parcels">
+      <td>{{p.id}}</td>
+      <td>{{p.recieverPhno}}</td>
+      <td><button onclick="showdata()">details</button></td>
+    </tr>
+      <div *ngIf="submits">
+        <td> </td>
+
+      </div>
+    <tr>
+
+    </tr>
+  </table>
+</div>

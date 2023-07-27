@@ -1,0 +1,50 @@
+package com.example.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.dto.ParcelDTO;
+//import com.example.dto.TrackingInfoDTO;
+import com.example.entity.TrackingInfo;
+import com.example.service.TrackingService;
+import com.example.util.Demoparcel1Interface;
+
+@CrossOrigin(origins = "http://localhost:4200", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+@RestController
+@RequestMapping("/tracking")
+public class TrackingController {
+    @Autowired
+    TrackingService trackingService;
+    @Autowired
+    Demoparcel1Interface demoparcel1Interface;
+    
+    @PostMapping("/add")
+    public ResponseEntity<TrackingInfo> addTrackingInfo(@RequestBody TrackingInfo trackingInfo) {
+//        trackingInfo.setParcelId(parcelId);
+//        TrackingInfo addedTrackingInfo = trackingService.addTrackingInfo(trackingInfo);
+//        return new ResponseEntity<>(addedTrackingInfo, HttpStatus.CREATED);
+    	return ResponseEntity.ok().body(trackingService.addTrackingInfo(trackingInfo));
+    }
+
+    @GetMapping("/get/{id}")
+    public ResponseEntity<TrackingInfo> getTrackingInfoById(@PathVariable Long id) {
+        TrackingInfo trackingInfo = trackingService.getTrackingInfo(id);
+      
+        return ResponseEntity.ok().body(trackingInfo);
+    }
+    @GetMapping("parcels")
+    public ResponseEntity<?> getparcels(){
+    	return ResponseEntity.ok().body(trackingService.getallParcels());
+    }
+
+    // Other endpoints and methods as needed
+}
